@@ -24,6 +24,38 @@ export default defineComponent({
     increment: function increment() {
       return this.count++;
     }
+  },
+  beforeCreate() {
+    console.log("beforeCreate")
+    console.log("count: ", this.count)
+  },
+  created() {
+    console.log("created")
+    console.log("count: ", this.count)
+  },
+  beforeMount() {
+    console.log("beforeMount")
+    console.log("count: ", this.count)
+  },
+  mounted() {
+    console.log("mounted")
+    console.log("count: ", this.count)
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate")
+    console.log("count: ", this.count)
+  },
+  updated() {
+    console.log("updated")
+    console.log("count: ", this.count)
+  },
+  beforeUnmount() {
+    console.log("beforeUnmount")
+    console.log("count: ", this.count)
+  },
+  unmounted() {
+    console.log("unmounted")
+    console.log("count: ", this.count)
   }
 });
 </script>

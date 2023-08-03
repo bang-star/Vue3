@@ -46,3 +46,18 @@ createApp({
 
 - options(Vue2 기본 옵션 사용 가능)
   1. mount: Dom 요소를 지정(el대신 mount를 chaining하여 지정)
+
+## Lifecycle Diagram
+
+![LifeCylcle](https://vuejs.org/assets/lifecycle.16e4c08e.png)
+
+- setup: vue3
+- Init Option API: vue2
+- beforeCreate: 인스턴스가 생성되기 전
+- created: 인스턴스가 생성된 후
+- Has pre-compiled template: 데이터나 템플릿이든지 인스턴스 시작점으로부터 연동한 태그에 대해서 어떤 화면이 업데이트될 필요가 있을때 `Complie template on-the-fly`
+- beforeMount: 화면을 그려주기 전
+- mounted: 화면을 그려준 후
+- beforeUpdate/updated: 인스턴스가 생성된 후 데이터나 템플릿에 따라서 화면을 다시 그려준 다음 데이터가 변경되기 전과 후를 감지
+- beforeUnmount: 화면이 사라지기전
+- unmounted: 화면이 사라질 때 
