@@ -61,3 +61,63 @@ createApp({
 - beforeUpdate/updated: 인스턴스가 생성된 후 데이터나 템플릿에 따라서 화면을 다시 그려준 다음 데이터가 변경되기 전과 후를 감지
 - beforeUnmount: 화면이 사라지기전
 - unmounted: 화면이 사라질 때 
+
+## Component
+
+- SFC: Single File Component(Template + Script + style)
+- Vue의 가장 강력한 기능 중 하나(기본 HTML element를 확장하여 재사용 가능한 코드로 캡슐화)
+- 캡슐화 : 객체의 속성, 행위를 하나로 묶고 실제 구현 일부를 내부에 감추어 은닉
+
+![Component basics](https://vuejs.org/assets/components.7fbb3771.png)
+
+위와 그림과 같이 컴포넌트의 집합으로 관리가 된다.
+
+### VUE 2
+
+```vue
+new Vue({
+  el: '#example',
+  // 지역 컴포넌트
+  components: {
+    'my-component': { template: '<div></div>' }
+  }
+})
+
+// 전역 컴포넌트
+Vue.component('my-component', {
+  template: '<div>사용자 정의 컴포넌트</div>'
+})
+```
+
+### VUE 3   
+
+```vue
+// 뷰 어플리케이션 생성
+const app = Vue.createApp(...)
+
+// todo-item 란 이름의 새로운 컴포넌트 선언
+app.component('todo-item', {
+  template: '<div></div>'
+)}
+
+// 어플리케이션을 마운트
+app.mount(...)
+
+
+// 지역 컴포넌트
+const ComponentA = {}
+const ComponentB = {}
+const ComponentC = {}
+
+const app Vue.createApp({
+  components: {
+    'component-a': ComponentA,
+    'component-b: ComponentB,
+    'component-c': ComponentC,
+  }
+})
+```
+
+> [참고] Vue2와 Vue3의 지역이라는 범위과 다르다.
+
+- 컴포넌트는 Vue 인스턴스이기도 합니다. 그러므로 모든 옵션 객체를 사용할 수 있습니다.(루트에만 사용하는 옵션은 제외) 같은 라이프사이클 훅을 사용할 수 있습니다.
