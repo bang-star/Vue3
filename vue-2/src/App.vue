@@ -1,29 +1,35 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1 v-bind:id="message">
-      {{ message }}
-    </h1>
-    {{ count }}
-    <button @click="increment">
-      Click Me!
-    </button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      message: '안녕하세요',
-      count: 0
-    }
+  beforeCreate() {
+    console.log("beforeCreate")
   },
-  methods: {
-    increment() {
-      return this.count++;
-    }
+  created() {
+    console.log("created")
+  },
+  beforeMount() {
+    console.log("beforeMount")
+  },
+  mounted() {
+    console.log("mounted")
+  },
+  beforeDestroy() {
+    console.log("beforeDestroy")
+  },
+  destroyed() {
+    console.log("destroyed")
+  },
+  updated() {
+    console.log("updated")
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate")
   }
 }
 </script>
