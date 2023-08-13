@@ -1,18 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="app">
+    <h1>{{ message }}</h1>
+    <global-component />
+    <local-component />
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script lang="ts" setup>
+import {ref} from "vue";
+import LocalComponent from "@/components/LocalComponent.vue";   // 로컬
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-});
+const message = ref('Root Component');
 </script>
 
 <style lang="scss">
