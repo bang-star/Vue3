@@ -1,63 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  {{ message }}
-  <h1>
-    {{count}}
-    <button @click="increment">Click Me</button>
-  </h1>
+  <div class="app">
+    <h1>{{ message }}</h1>
+    <global-component />
+    <local-component />
+  </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from "vue";
+<script lang="ts" setup>
+import {ref} from "vue";
+import LocalComponent from "@/components/LocalComponent.vue";   // 로컬
 
-export default defineComponent({
-  name: 'App',
-  components: {
-  },
-  data() {
-    return {
-      message: '안녕하세요',
-      count: 0
-    }
-  },
-  methods: {
-    increment: function increment() {
-      return this.count++;
-    }
-  },
-  beforeCreate() {
-    console.log("beforeCreate")
-    console.log("count: ", this.count)
-  },
-  created() {
-    console.log("created")
-    console.log("count: ", this.count)
-  },
-  beforeMount() {
-    console.log("beforeMount")
-    console.log("count: ", this.count)
-  },
-  mounted() {
-    console.log("mounted")
-    console.log("count: ", this.count)
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate")
-    console.log("count: ", this.count)
-  },
-  updated() {
-    console.log("updated")
-    console.log("count: ", this.count)
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount")
-    console.log("count: ", this.count)
-  },
-  unmounted() {
-    console.log("unmounted")
-    console.log("count: ", this.count)
-  }
-});
+const message = ref('Root Component');
 </script>
 
 <style lang="scss">
